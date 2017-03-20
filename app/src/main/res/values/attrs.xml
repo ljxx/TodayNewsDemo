@@ -25,6 +25,7 @@
         <attr name="pzHeader" format="reference"/>
         <attr name="pzMain" format="reference"/>
     </declare-styleable>
+
     <attr name="clickableBackground" format="reference"/>
     <attr name="main_bg" format="reference|color"/>
     <attr name="white_bg" format="reference|color"/>

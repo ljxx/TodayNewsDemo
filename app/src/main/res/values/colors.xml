@@ -8,6 +8,9 @@
     <color name="ssxinheihui1">#ff222222</color>
     <color name="white">#ffffffff</color>
     <color name="subscribe_category_btn_bg_normal">#ffd43d3d</color>
+    <color name="bg_grey">#F5F5F5</color>
+    <color name="transparent">#00000000</color>
+
 
     <color name="write_comment_divider_color">@color/fengexian5</color>
     <color name="fengexian5">#ffe6e6e6</color>
@@ -20,4 +23,15 @@
 
     <color name="ssxinxian1">@color/ssxinjiangexian1</color>
     <color name="ssxinjiangexian1">#ffe8e8e8</color>
+
+    <color name="ssxinmian4">@color/ssxinbaise1</color>
+    <color name="ssxinbaise1">#ffffffff</color>
+
+    <color name="ssxinmian7">@color/ssxinhongse1</color>
+    <color name="ssxinhongse1">#fff85959</color>
+
+    <color name="ssxinzi2">@color/ssxinheihui2</color>
+    <color name="ssxinheihui2">#ff505050</color>
+
+
 </resources>

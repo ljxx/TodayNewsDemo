@@ -1,13 +1,28 @@
 package com.ylx.todaynews;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.ylx.todaynews.base.BaseActivity;
+
+public class MainActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void loadViewLayout() {
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void bindViews() {
+
+    }
+
+    @Override
+    protected void processLogic(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    protected void setListener() {
+
     }
 }

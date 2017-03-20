@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+        <ImageView
+            android:id="@+id/new_category_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="7.0dip"
+            android:layout_marginTop="6.0dip"
+            android:layout_toLeftOf="@+id/icon_category"
+            android:src="@drawable/ic_new_category_tip_dark"
+            android:visibility="gone"
+            />
+
+        <com.ylx.todaynews.ui.view.colortrackview.ColorTrackTabViewIndicator
+            android:id="@+id/tab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:ctMode="scrollable"
+            app:ctTabSelectedTextColor="@color/ssxinhongse1"
+            android:background="@color/white"
+            app:ctTabTextColor="@color/ssxinheihui1"
+            app:ctTabTextSize="16sp"
+            app:ctTabWidth="50dp"
+            app:isColorUi="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+        <ImageView
+            android:id="@+id/icon_category"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/shadow_add_titlebar_new"
+            android:paddingLeft="5dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_category_expand"
+            app:isColorUi="true"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ssxinxian1"
+        app:isColorUi="true"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
