@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+
+    <!--数据库名称-->
+    <dbname value="zhaoonline"/>
+
+    <!--数据库版本-->
+    <version value="1" />
+
+    <!--数据库表映射对象-->sour
+    <list>
+        <mapping class="com.ylx.todaynews.sqlite.model.ChannelTitle"/>
+    </list>
+
+</litepal>

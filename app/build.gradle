@@ -43,4 +43,7 @@ dependencies {
     compile 'com.orhanobut:logger:1.15'
     compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+//    数据库框架
+    compile 'org.litepal.android:core:1.5.1'
 }

@@ -15,7 +15,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void bindViews() {
-
+//        SQLiteDatabase sqLiteDatabase = Connector.getDatabase();
     }
 
     @Override
