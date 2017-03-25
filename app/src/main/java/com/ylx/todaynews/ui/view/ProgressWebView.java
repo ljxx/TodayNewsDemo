@@ -2,13 +2,16 @@ package com.ylx.todaynews.ui.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.util.AttributeSet;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+
 import com.ylx.todaynews.R;
+import com.ylx.todaynews.utils.NetworkUtil;
 
 /**
  * 带进度条的WebView
@@ -27,8 +30,16 @@ public class ProgressWebView extends WebView {
         setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
+                boolean isShould;
+                if (NetworkUtil.isNetworkUrl(url)) {
+                    view.loadUrl(url);
+                    isShould = true;
+                } else {
+                    if (onHtmlEventListener != null)
+                        onHtmlEventListener.onUriLoading(Uri.parse(url));
+                    isShould = false;
+                }
+                return isShould;
             }
 
             @Override
@@ -47,21 +58,23 @@ public class ProgressWebView extends WebView {
         addJavascriptInterface(new InJavaScriptLocalObj(), "local_obj");
     }
 
-    private onLoadFinishedListener onLoadFinishedListener;
+    private OnHtmlEventListener onHtmlEventListener;
 
-    public void setOnLoadFinishedListener(ProgressWebView.onLoadFinishedListener onLoadFinishedListener) {
-        this.onLoadFinishedListener = onLoadFinishedListener;
+    public void setOnHtmlEventListener(OnHtmlEventListener onHtmlEventListener) {
+        this.onHtmlEventListener = onHtmlEventListener;
     }
 
-    public interface onLoadFinishedListener {
+    public interface OnHtmlEventListener {
         void onFinished(String html);
+
+        void onUriLoading(Uri uri);
     }
 
     class InJavaScriptLocalObj {
         @JavascriptInterface
         public void showSource(String html) {
 //            Logger.i(html);
-            if (onLoadFinishedListener != null) onLoadFinishedListener.onFinished(html);
+            if (onHtmlEventListener != null) onHtmlEventListener.onFinished(html);
         }
     }
 

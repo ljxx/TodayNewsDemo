@@ -9,7 +9,6 @@ import android.widget.CheckBox;
 import com.ylx.todaynews.theme.colorUi.ColorUiInterface;
 import com.ylx.todaynews.theme.colorUi.util.ViewAttributeUtil;
 
-
 /**
  * Created by chengli on 15/6/8.
  */

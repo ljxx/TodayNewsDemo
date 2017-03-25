@@ -3,6 +3,7 @@ package com.ylx.todaynews.ui.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.OverScroller;
@@ -50,9 +51,9 @@ public class MyScrollView extends LinearLayout {
 //        mHeight =getMeasuredHeight();
 //        int rootViewHeight =mRootView.getMeasuredHeight();
         int w = MeasureSpec.makeMeasureSpec(mRootView.getMeasuredHeight(),
-                MeasureSpec.EXACTLY);
-        int h = MeasureSpec.makeMeasureSpec(0,
-                MeasureSpec.UNSPECIFIED);
+                View.MeasureSpec.EXACTLY);
+        int h = View.MeasureSpec.makeMeasureSpec(0,
+                View.MeasureSpec.UNSPECIFIED);
 //        //重新测量
         mRootView.measure(w, h);
     }

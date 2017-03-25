@@ -1,6 +1,7 @@
 package com.ylx.todaynews.theme.colorUi.util;
 
 import android.content.res.Resources;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -10,7 +11,6 @@ import com.ylx.todaynews.theme.colorUi.ColorUiInterface;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
 
 /**
  * Created by chengli on 15/6/10.
@@ -73,6 +73,17 @@ public class ColorUiUtil {
                     e4.printStackTrace();
                 } catch (InvocationTargetException e5) {
                     e5.printStackTrace();
+                }
+            } else if (rootView instanceof RecyclerView) {
+                RecyclerView recyclerView = (RecyclerView) rootView;
+                try {
+                    Field mRecyclerField = RecyclerView.class.getDeclaredField("mRecycler");
+                    mRecyclerField.setAccessible(true);
+                    Method clearMethod = RecyclerView.Recycler.class.getDeclaredMethod("clear");
+                    clearMethod.setAccessible(true);
+                    clearMethod.invoke(mRecyclerField.get(recyclerView));
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }

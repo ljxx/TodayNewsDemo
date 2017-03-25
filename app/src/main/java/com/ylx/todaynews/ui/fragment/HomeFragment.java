@@ -1,9 +1,6 @@
 package com.ylx.todaynews.ui.fragment;
 
-import android.annotation.TargetApi;
-import android.app.ActivityOptions;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -93,14 +90,15 @@ public class HomeFragment extends BaseMvpFragment<HomePresenter> implements IHom
 
     }
 
+    static final int REQUEST_CHANNEL = 111;
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @OnClick({R.id.icon_category})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.icon_category:
+//                intent2Activity(ChannelActivity.class);
                 Intent intent = new Intent(mContext, ChannelActivity.class);
-                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(mContext).toBundle());
+                startActivityForResult(intent,REQUEST_CHANNEL);
                 break;
         }
     }

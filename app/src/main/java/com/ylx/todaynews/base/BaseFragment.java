@@ -80,6 +80,17 @@ public abstract class BaseFragment extends Fragment {
         return (E) rootView.findViewById(id);
     }
 
+//    public static interface OnFragmentInitFinish {
+//        void onInitFinish();
+//    }
+//
+//    private OnFragmentInitFinish onFragmentInitFinish;
+//
+//    public void setOnFragmentInitFinish(OnFragmentInitFinish onFragmentInitFinish) {
+//        this.onFragmentInitFinish = onFragmentInitFinish;
+//    }
+
+
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
@@ -193,6 +204,5 @@ public abstract class BaseFragment extends Fragment {
     public void post(Notice msg) {
         RxBus.getDefault().post(msg);
     }
-
 
 }

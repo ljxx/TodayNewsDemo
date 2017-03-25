@@ -419,7 +419,7 @@ public class OverScrollView extends FrameLayout implements OnTouchListener
             int height = getMeasuredHeight();
             if (child.getMeasuredHeight() < height)
             {
-                final LayoutParams lp = (LayoutParams) child.getLayoutParams();
+                final FrameLayout.LayoutParams lp = (LayoutParams) child.getLayoutParams();
 
                 int childWidthMeasureSpec = getChildMeasureSpec(widthMeasureSpec, getPaddingLeft() + getPaddingRight(), lp.width);
                 height -= getPaddingTop();
@@ -876,8 +876,8 @@ public class OverScrollView extends FrameLayout implements OnTouchListener
      * </p>
      *
      * @param direction
-     *            the scroll direction: {@link View#FOCUS_UP} to go
-     *            one page up or {@link View#FOCUS_DOWN} to go one
+     *            the scroll direction: {@link android.view.View#FOCUS_UP} to go
+     *            one page up or {@link android.view.View#FOCUS_DOWN} to go one
      *            page down
      * @return true if the key event is consumed by this method, false otherwise
      */
@@ -920,8 +920,8 @@ public class OverScrollView extends FrameLayout implements OnTouchListener
      * </p>
      *
      * @param direction
-     *            the scroll direction: {@link View#FOCUS_UP} to go
-     *            the top of the view or {@link View#FOCUS_DOWN} to
+     *            the scroll direction: {@link android.view.View#FOCUS_UP} to go
+     *            the top of the view or {@link android.view.View#FOCUS_DOWN} to
      *            go the bottom
      * @return true if the key event is consumed by this method, false otherwise
      */
@@ -956,8 +956,8 @@ public class OverScrollView extends FrameLayout implements OnTouchListener
      * </p>
      *
      * @param direction
-     *            the scroll direction: {@link View#FOCUS_UP} to go
-     *            upward {@link View#FOCUS_DOWN} to downward
+     *            the scroll direction: {@link android.view.View#FOCUS_UP} to go
+     *            upward {@link android.view.View#FOCUS_DOWN} to downward
      * @param top
      *            the top offset of the new area to be made visible
      * @param bottom
@@ -1430,7 +1430,7 @@ public class OverScrollView extends FrameLayout implements OnTouchListener
      * When looking for focus in children of a scroll view, need to be a little
      * more careful not to give focus to something that is scrolled off screen.
      *
-     * This is more expensive than the default {@link ViewGroup}
+     * This is more expensive than the default {@link android.view.ViewGroup}
      * implementation, otherwise this behavior might have been made the default.
      */
     @Override

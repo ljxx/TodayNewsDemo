@@ -2,6 +2,7 @@ package com.ylx.todaynews.ui.fragment;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,12 +28,12 @@ import butterknife.ButterKnife;
 public class NewsListFragment extends BaseMvpFragment<NewsListPresenter> implements INewsListView {
 
     @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
+    public RecyclerView recyclerView;
     @BindView(R.id.srl)
     SwipeRefreshLayout srl;
-    private String mTitleCode = "__all__";
-    private List<News> mDatas = new ArrayList<>();
-    private NewsAdapter mAdapter;
+    private String mTitleCode = "";
+    protected List<News> mDatas = new ArrayList<>();
+    protected BaseQuickAdapter mAdapter;
 
     @Override
     protected NewsListPresenter createPresenter() {
@@ -52,15 +53,22 @@ public class NewsListFragment extends BaseMvpFragment<NewsListPresenter> impleme
 
     @Override
     protected void processLogic() {
-        initCommonRecyclerView(mAdapter = new NewsAdapter(mDatas), null);
+        initCommonRecyclerView(createAdapter(), null);
         mTitleCode = getArguments().getString(ConstanceValue.DATA);
         srl.measure(0, 0);
         srl.setRefreshing(true);
     }
 
+    protected BaseQuickAdapter createAdapter() {
+        return mAdapter = new NewsAdapter(mDatas);
+    }
+
+
     @Override
     protected void lazyLoad() {
         super.lazyLoad();
+        if (TextUtils.isEmpty(mTitleCode))
+            mTitleCode = getArguments().getString(ConstanceValue.DATA);
         mvpPresenter.getNewsList(mTitleCode);
     }
 
@@ -77,13 +85,9 @@ public class NewsListFragment extends BaseMvpFragment<NewsListPresenter> impleme
             public void onItemClick(View view, int i) {
                 News news = mDatas.get(i);
                 if (news.article_genre.equals(ConstanceValue.ARTICLE_GENRE_VIDEO)) {
-                    /**
-                     * 跳转视频页
-                     */
+                    //跳转视频
                 } else {
-                    /**
-                     * 跳转详情页
-                     */
+                    //跳转详情页
                 }
             }
         });

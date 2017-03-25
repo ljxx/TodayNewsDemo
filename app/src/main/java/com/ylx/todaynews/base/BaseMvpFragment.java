@@ -81,4 +81,23 @@ public abstract class BaseMvpFragment<P extends BasePresenter> extends BaseFragm
         recyclerView.setAdapter(adapter);
         return recyclerView;
     }
+
+//    @Override
+//    public void onViewCreated(View view, Bundle savedInstanceState) {
+//        user = BaseApplication.getInstance().getUserInfo();
+//        super.onViewCreated(view, savedInstanceState);
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        user = BaseApplication.getInstance().getUserInfo();
+//        super.onResume();
+//    }
+//    public boolean checkLogin() {
+//        if (user == null) {
+//            intent2Activity(LoginActivity.class);
+//            return false;
+//        }
+//        return true;
+//    }
 }

@@ -23,4 +23,29 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActiv
             mvpPresenter.detachView();
         }
     }
+
+//    protected UserInfo user;
+
+
+
+
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        user = BaseApplication.getInstance().getUserInfo();
+//        super.onCreate(savedInstanceState);
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        user = BaseApplication.getInstance().getUserInfo();
+//        super.onResume();
+//    }
+
+//    public boolean checkLogin() {
+//        if (user == null) {
+//            intent2Activity(LoginActivity.class);
+//            return false;
+//        }
+//        return true;
+//    }
 }

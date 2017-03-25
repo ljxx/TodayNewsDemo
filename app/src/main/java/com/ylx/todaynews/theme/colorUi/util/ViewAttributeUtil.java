@@ -11,7 +11,6 @@ import com.ylx.todaynews.base.BaseApplication;
 import com.ylx.todaynews.theme.colorUi.ColorUiInterface;
 import com.ylx.todaynews.utils.ConstanceValue;
 
-
 /**
  * Created by chengli on 15/6/8.
  */
